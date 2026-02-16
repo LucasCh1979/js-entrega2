@@ -1,0 +1,148 @@
+@use "../utilities/variables";
+
+
+
+%parrafo {
+    position: absolute;
+    font-family: "Amarante", serif;
+    font-weight: 400;
+    font-style: normal;
+    bottom: 10px;
+    padding: 10px;
+    font-size: 50px;
+    opacity: 0;
+    color: black;
+}
+%sombreado {
+    border-radius: 20px;
+    border: 2px solid variables.$bordes-shadow;
+    box-shadow: 5px 5px 10px variables.$bordes-shadow;
+
+}
+
+%hover--store {
+    background-size: cover;
+    @extend %sombreado;
+    opacity: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+}
+
+%membretes {
+    text-align: center;
+
+    h1 {
+        font-family: "Bungee Spice", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 5vw;
+    }
+}
+@media (max-width: 991px) {
+    main {
+        %membretes {
+            h1 {
+                font-family: "Bungee Spice", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 10vw;
+            }
+        }
+        %fondo--inicio {
+                h2 {
+                    font-size: 40px;
+                    margin-top: 60px;
+                }
+            }
+        }
+    }
+
+%enlace-comentado {
+    text-decoration: none;
+    color: black;
+    background-color: hwb(34 87% 8%);
+    border-radius: 5px;
+    text-align: end;
+}
+
+%h2--inicio {
+    font-family: "Amarante", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 70px;
+    font-size: 40px;
+}
+
+%h2--sedes {
+    font-family: "Amarante", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+}
+
+%li--sedes {
+    font-family: "Amarante", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+
+%li--h5--sedes {
+    font-family: "Amarante", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    text-align: center;
+}
+
+%hover--fixture {
+    position: relative;
+
+    figure {
+        overflow: hidden;
+        border-radius: 20px
+    }
+
+    p {
+        @extend %parrafo;
+    }
+
+    img {
+        transition: transform .8s;
+    }
+
+    &:hover {
+        p {
+            opacity: 1;
+        }
+
+        img {
+            transform: scale(1.15);
+        }
+    }
+}
+
+%nombre--fixture--left {
+    position: absolute;
+    left: 4.2%;
+    width: 12%;
+    height: 4%;
+    text-align: center;
+    font-size: 12px;
+    align-content: center;
+}
+
+%nombre--fixture--right {
+    position: absolute;
+    right: 4.2%;
+    width: 12%;
+    height: 4%;
+    text-align: center;
+    font-size: 12px;
+    align-content: center;
+}

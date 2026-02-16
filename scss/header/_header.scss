@@ -1,0 +1,96 @@
+/*Barra de navegacion y header para todas las paginas*/
+.header {
+    padding: 10px;
+
+    .navbar {
+        background-image: url(../../assets/img/header.webp);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 150px;
+        border-radius: 20px;
+
+        .navbar-brand {
+            img {
+                height: 22vh;
+            }
+        }
+
+        button {
+            .navbar-toggler-icon {
+                background-color: hwb(34 87% 8%);
+                border-radius: 4px;
+
+            }
+        }
+
+        div {
+            .navbar-nav {
+                background-color: hwb(208 94% 0% / 0.37);
+                padding: 10px;
+                font-family: "Amarante", serif;
+                text-align: center;
+                font-size: 22px;
+
+                .nav-link {
+                    background-color: hwb(34 87% 8%);
+                    background-size: cover;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+}
+
+/* No se a donde anidarlo porque donde lo coloque deja activo la visualizacion en responsive*/
+
+.navbar-collapse {
+    display: flex;
+    justify-content: end;
+    z-index: 3;
+}
+
+@media (max-width: 991px) {
+    .header {
+        padding: 10px;
+
+        .navbar {
+            background-image: url(../../assets/img/header.webp);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 150px;
+            border-radius: 20px;
+
+            .navbar-brand {
+                img {
+                    height: 22vh;
+                }
+            }
+
+            button {
+                .navbar-toggler-icon {
+                    background-color: hwb(34 87% 8%);
+                    border-radius: 4px;
+
+                }
+            }
+
+            div {
+                .navbar-nav {
+                    background-color:  hwb(208 94% 0% / 0.37);
+                    padding: 10px;
+                    font-family: "Amarante", serif;
+                    text-align: center;
+                    font-size: 45px;
+
+                    .nav-link {
+                        background-color: hsl(208, 100%, 97%);
+                        background-size: cover;
+                        border-radius: 4px;
+                    }
+                }
+            }
+        }
+    }
+}

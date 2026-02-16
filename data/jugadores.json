@@ -1,0 +1,83 @@
+[
+  {
+    "categoria": "5ta",
+    "nombre": "Lucas",
+    "apellido": "Chariano",
+    "edad": "46",
+    "etapa": "arrancando",
+    "contacto": "lucasch1979@gmail.com",
+    "foto": "assets/img/jugadores/foto2.webp"
+  },
+  {
+    "categoria": "5ta",
+    "nombre": "Gise",
+    "apellido": "Lozano",
+    "edad": "1",
+    "etapa": "1",
+    "contacto": "gise@loza",
+    "foto": "assets/img/jugadores/jugador1500.webp"
+  },
+  {
+    "categoria": "5ta",
+    "nombre": "Anna",
+    "apellido": "Chariano",
+    "edad": "2",
+    "etapa": "arrancando",
+    "contacto": "1@w",
+    "foto": "assets/img/jugadores/jugador2500.webp"
+  },
+  {
+    "categoria": "5ta",
+    "nombre": "Alma",
+    "apellido": "Chariano",
+    "edad": "6",
+    "etapa": "arrancando",
+    "contacto": "1@w",
+    "foto": "assets/img/jugadores/jugador3500.webp"
+  },
+  {
+    "categoria": "5ta",
+    "nombre": "Emma",
+    "apellido": "Chariano",
+    "edad": "10",
+    "etapa": "arrancando",
+    "contacto": "1@w",
+    "foto": "assets/img/jugadores/jugador4500.webp"
+  },
+  {
+    "categoria": "3era",
+    "nombre": "Bruno",
+    "apellido": "Bozutto",
+    "edad": "32",
+    "etapa": "2",
+    "contacto": "1@w",
+    "foto": ""
+  },
+  {
+    "categoria": "3era",
+    "nombre": "a",
+    "apellido": "a",
+    "edad": "1",
+    "etapa": "a",
+    "contacto": "1@w",
+    "foto": ""
+  },
+  {
+    "categoria": "4ta",
+    "nombre": "b",
+    "apellido": "b",
+    "edad": "1",
+    "etapa": "b",
+    "contacto": "1@w",
+    "foto": ""
+  },
+  {
+    "categoria": "5ta",
+    "nombre": "c",
+    "apellido": "c",
+    "edad": "1",
+    "etapa": "c",
+    "contacto": "1@w",
+    "foto": ""
+  }
+]
