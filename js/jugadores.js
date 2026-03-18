@@ -1,17 +1,33 @@
 const contenedor = document.getElementById("contenedorJugadores");
 const filtroCategoria = document.getElementById("filtroCategoria");
 
-const STORAGE_KEY = "jugadores";
+const URL = "../data/jugadores.json";
 
-// localstorage
+let jugadoresTotal = [];
+
+
 function obtenerJugadores() {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    const guardados = localStorage.getItem("jugadores");
+
+    if (guardados) {
+        jugadoresTotal = JSON.parse(guardados);
+        renderizar();
+    } else {
+        fetch(URL)
+            .then(response => response.json())
+            .then(data => {
+                jugadoresTotal = data;
+                localStorage.setItem("jugadores", JSON.stringify(jugadoresTotal));
+                renderizar();
+            });
+    }
 }
 
-function guardarJugadores(jugadores) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(jugadores));
-}
+obtenerJugadores();
 
+function renderizar() {
+    elegirCategoria(jugadoresTotal);
+}
 
 function crearCards(jugadores) {
     contenedor.innerHTML = "";
@@ -41,45 +57,119 @@ function crearCards(jugadores) {
 
         contenedor.appendChild(col);
     });
+
+
+    const botonesEliminar = document.querySelectorAll(".btn-eliminar");
+
+    botonesEliminar.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const id = btn.dataset.id;
+
+            Swal.fire({
+                title: "¿Estás seguro?",
+                text: "No vas a poder revertir esto",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Sí, eliminar",
+                cancelButtonText: "Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    eliminarJugador(id);
+
+                    Swal.fire({
+                        title: "Eliminado",
+                        text: "El jugador fue eliminado correctamente",
+                        icon: "success"
+                    });
+                }
+            });
+        });
+    });
 }
 
 
-contenedor.addEventListener("click", (e) => {
-    const botonEliminar = e.target.closest(".btn-eliminar");
-
-    if (!botonEliminar) return;
-
-    const id = Number(botonEliminar.dataset.id);
-
-    let jugadores = obtenerJugadores();
-
-    const jugador = jugadores.find(j => j.id === id);
-
-    if (!jugador) return;
-
-    const confirmar = confirm(
-        `¿Eliminar a ${jugador.nombre} ${jugador.apellido}?`
-    );
-
-    if (!confirmar) return;
-
-    jugadores = jugadores.filter(j => j.id !== id);
-
-    guardarJugadores(jugadores);
-    crearCards(jugadores);
-});
-
-
-filtroCategoria.addEventListener("change", () => {
+function eleccion() {
     const categoria = filtroCategoria.value;
-    let jugadores = obtenerJugadores();
 
-    if (categoria !== "") {
-        jugadores = jugadores.filter(j => j.categoria === categoria);
+    let jugadores;
+
+    if (categoria === "") {
+        jugadores = jugadoresTotal;
+    } else {
+        jugadores = jugadoresTotal.filter(j => j.categoria === categoria);
     }
 
-    crearCards(jugadores);
-});
+    return jugadores
+}
+
+function elegirCategoria(jugadoresArray) {
+    filtroCategoria.addEventListener("change", () => {
+
+        crearCards(eleccion());
+    });
+}
 
 
-crearCards(obtenerJugadores());
+function eliminarJugador(id) {
+    jugadoresTotal = jugadoresTotal.filter(j => j.id != id);
+
+    localStorage.setItem("jugadores", JSON.stringify(jugadoresTotal));
+
+    crearCards(eleccion());
+}
+
+
+
+
+
+
+// guardo lo comentado como ayudamemoria
+
+
+//const STORAGE_KEY = "jugadores";
+
+// localstorage
+/* function obtenerJugadores() {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+}
+
+function guardarJugadores(jugadores) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(jugadores));
+} */
+
+/* esto iria en la line 39 para el btn de eliminar
+<button 
+    class="btn btn-danger btn-sm btn-eliminar"
+    data-id="${jugador.id}">
+    Eliminar
+</button>  */
+
+/* function eliminarJugadores(jugadoresArray){
+    contenedor.addEventListener("click", (e) => {
+        const botonEliminar = e.target.closest(".btn-eliminar");
+
+        if (!botonEliminar) return;
+
+        const id = Number(botonEliminar.dataset.id);
+
+        let jugadores = jugadoresArray;
+
+        const jugador = jugadores.find(j => j.id === id);
+
+        if (!jugador) return;
+
+        const confirmar = confirm(
+            `¿Eliminar a ${jugador.nombre} ${jugador.apellido}?`
+        );
+
+        if (!confirmar) return;
+
+        jugadores = jugadores.filter(j => j.id !== id);
+
+        guardarJugadores(jugadores);
+        crearCards(jugadores);
+    });
+} */

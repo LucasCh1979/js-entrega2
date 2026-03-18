@@ -1,49 +1,70 @@
 const formUsuario = document.getElementById("formUsuario");
+const URL = "../data/jugadores.json";
 
-const STORAGE_KEY = "jugadores";
+let jugadores = [];
 
-// Obtener jugadores del json
+
 function obtenerJugadores() {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    const guardados = localStorage.getItem("jugadores");
+
+    if (guardados) {
+
+        jugadores = JSON.parse(guardados);
+
+    } else {
+        
+        fetch(URL)
+            .then(response => response.json())
+            .then(data => {
+                jugadores = data;
+                guardarJugadores();
+            });
+    }
 }
 
-// Guardar jugadores
-function guardarJugadores(jugadores) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(jugadores));
+obtenerJugadores();
+
+function guardarJugadores() {
+    localStorage.setItem("jugadores", JSON.stringify(jugadores));
 }
 
-if (formUsuario) {
-    formUsuario.addEventListener("submit", (e) => {
-        e.preventDefault();
 
-        let jugadores = obtenerJugadores();
+formUsuario.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-        const jugador = {
-            id: Date.now(),
-            categoria: document.getElementById("categoria").value,
-            nombre: document.getElementById("nombre").value,
-            apellido: document.getElementById("apellido").value,
-            edad: Number(document.getElementById("edad").value),
-            contacto: document.getElementById("contacto").value,
-            foto: document.getElementById("foto").value
-        };
+    const jugador = {
+        id: Date.now(),
+        categoria: document.getElementById("categoria").value,
+        nombre: document.getElementById("nombre").value,
+        apellido: document.getElementById("apellido").value,
+        edad: Number(document.getElementById("edad").value),
+        contacto: document.getElementById("contacto").value,
+        foto: document.getElementById("foto").value
+    };
 
-        //duplicados
-        const existe = jugadores.find(j =>
-            j.nombre === jugador.nombre &&
-            j.apellido === jugador.apellido
-        );
+    const existe = jugadores.find(j =>
+        j.nombre === jugador.nombre &&
+        j.apellido === jugador.apellido
+    );
 
-        if (existe) {
-            alert("Ese jugador ya existe");
-            return;
-        }
+    if (existe) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Este jugador ya existe!",
+        });
+        formUsuario.reset()
+        return;
+    }
 
-        jugadores.push(jugador);
+    jugadores.push(jugador);
 
-        guardarJugadores(jugadores);
+    guardarJugadores(); 
 
-        formUsuario.reset();
-        alert("Jugador guardado correctamente");
-    });
-}
+    formUsuario.reset();
+    Swal.fire({
+            icon: "success",
+            title: "Jugador Creado",
+        });
+});
+

@@ -6,16 +6,16 @@
     "edad": "46",
     "etapa": "arrancando",
     "contacto": "lucasch1979@gmail.com",
-    "foto": "assets/img/jugadores/foto2.webp"
+    "foto": "foto2.webp"
   },
   {
-    "categoria": "5ta",
+    "categoria": "2da",
     "nombre": "Gise",
     "apellido": "Lozano",
     "edad": "1",
     "etapa": "1",
     "contacto": "gise@loza",
-    "foto": "assets/img/jugadores/jugador1500.webp"
+    "foto": "jugadora2.jpg"
   },
   {
     "categoria": "5ta",
@@ -24,25 +24,25 @@
     "edad": "2",
     "etapa": "arrancando",
     "contacto": "1@w",
-    "foto": "assets/img/jugadores/jugador2500.webp"
+    "foto": "jugadora4.jpg"
   },
   {
-    "categoria": "5ta",
+    "categoria": "3era",
     "nombre": "Alma",
     "apellido": "Chariano",
     "edad": "6",
     "etapa": "arrancando",
     "contacto": "1@w",
-    "foto": "assets/img/jugadores/jugador3500.webp"
+    "foto": "jugadora.jpg"
   },
   {
-    "categoria": "5ta",
+    "categoria": "4ta",
     "nombre": "Emma",
     "apellido": "Chariano",
     "edad": "10",
     "etapa": "arrancando",
     "contacto": "1@w",
-    "foto": "assets/img/jugadores/jugador4500.webp"
+    "foto": "jugadora3.jpg"
   },
   {
     "categoria": "3era",
@@ -51,33 +51,33 @@
     "edad": "32",
     "etapa": "2",
     "contacto": "1@w",
-    "foto": ""
+    "foto": "jugador5500.webp"
   },
   {
-    "categoria": "3era",
-    "nombre": "a",
-    "apellido": "a",
-    "edad": "1",
-    "etapa": "a",
+    "categoria": "2da",
+    "nombre": "Lolo",
+    "apellido": "Patito",
+    "edad": "8",
+    "etapa": "arrancando",
     "contacto": "1@w",
-    "foto": ""
+    "foto": "jugador3500.webp"
   },
   {
-    "categoria": "4ta",
-    "nombre": "b",
-    "apellido": "b",
-    "edad": "1",
-    "etapa": "b",
+    "categoria": "6ta",
+    "nombre": "Bartolito",
+    "apellido": "Gallo",
+    "edad": "13",
+    "etapa": "bien",
     "contacto": "1@w",
-    "foto": ""
+    "foto": "jugador1500.webp"
   },
   {
-    "categoria": "5ta",
-    "nombre": "c",
-    "apellido": "c",
-    "edad": "1",
-    "etapa": "c",
+    "categoria": "6ta",
+    "nombre": "Ginu",
+    "apellido": "Huntrix",
+    "edad": "17",
+    "etapa": "caza",
     "contacto": "1@w",
-    "foto": ""
+    "foto": "jugador4500.webp"
   }
 ]
